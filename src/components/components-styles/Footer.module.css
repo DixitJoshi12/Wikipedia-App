@@ -1,0 +1,18 @@
+.foot{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+    /* padding: 12px; */
+    margin: 2rem;
+    padding: 3rem;
+}
+
+.foot img{
+    height: 30px;
+    width: 30px;
+}
+.foot p{
+    font-size: 12px;
+    width: 40%;
+}

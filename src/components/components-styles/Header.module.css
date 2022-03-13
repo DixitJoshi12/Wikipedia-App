@@ -1,0 +1,41 @@
+.container{
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.left > img{
+    height: 30px;
+    width: 30px;
+    
+}
+.left h2{
+    font-size: 13px;
+    font-weight: 400;
+    margin-left: 14px;
+    padding: 2px 4px;
+}
+.left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container nav ul{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+}
+
+.container nav ul li{
+    padding: 8px;
+    font-size: 12px;
+    font-weight: 400;
+    text-decoration: none;
+}
+.container nav ul li a{
+    text-decoration: none;
+    color: #000;
+}
