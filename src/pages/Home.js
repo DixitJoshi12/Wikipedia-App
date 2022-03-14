@@ -1,9 +1,17 @@
-import classes from "./page-styles/Home.module.css";
+import React from "react";
 
-const Home = ()=>{
-    return (
-        <React.Fragment></React.Fragment>
-    );
-}
+import Header from "../components/Header";
+import Container from "../Layout/Container";
+import Footer from "../components/Footer";
+
+const Home = () => {
+  return (
+    <React.Fragment>
+      <Header />
+      <Container />
+      <Footer />
+    </React.Fragment>
+  );
+};
 
 export default Home;

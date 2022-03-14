@@ -1,25 +1,25 @@
-
 import './App.css';
 import {Route,Switch} from "react-router-dom";
-import Header from './components/Header';
-import Container from "./Layout/Container";
-import Footer from "./components/Footer";
+
+import Home from "./pages/Home";
+import Login  from './pages/Login';
+import Settings from './pages/Settings';
+// import Home from "../src/pages/Home.js"
+// import Login from './pages/Login';
 
 function App() {
   return (
     <div>
-      <Header/>
-      <Container/>
-      <Footer />
+      
       <Switch>
       <Route path="/home">
-        {/* <p>home</p> */}
+        <Home />
       </Route>
       <Route path="/">
-        {/* <p>default</p> */}
+        <Login />
       </Route>
       <Route path="/settings">
-        {/* <p>setting</p> */}
+        <Settings />
       </Route>
       </Switch>
     </div>
