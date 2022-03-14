@@ -1,7 +1,11 @@
+import LoginForm from "../components/LoginForm";
 import classes from "./Layout.styles/Container.module.css";
 
-const Container = () => {
-  return <div className={classes.box}></div>;
+const Container = (props) => {
+  return <div className={classes.box}>
+    <LoginForm/>
+    {/* {props.value} */}
+  </div>;
 };
 
 export default Container;

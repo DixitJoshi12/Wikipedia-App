@@ -1,4 +1,8 @@
 .box{
     background: #ebe8e8;
     height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
