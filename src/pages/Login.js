@@ -10,7 +10,8 @@ const Login = () => {
     <React.Fragment>
       <Header />
       {/* <Container value={<LoginForm />} /> */}
-      <Container />
+      {/* <Container /> */}
+      <Container><LoginForm /></Container>
       <Footer />
     </React.Fragment>
   );

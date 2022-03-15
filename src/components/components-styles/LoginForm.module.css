@@ -71,3 +71,22 @@
     align-items: center;
     justify-content: center ;
 }
+
+
+/* background image for inputs */
+
+.inner-box form input[type="text"]{
+    background: url('/src/images/user1.png') no-repeat left 10px center;
+    background-size: 15px 15px;
+    text-align: left;
+    padding-left: 40px;
+    color: #000;
+}
+.inner-box form input[type="password"]{
+    background: url('/src/images/key.png') no-repeat left 10px center;
+    background-size: 15px 15px;
+    text-align: left;
+    padding-left: 40px;
+    /* font-weight: 600; */
+    color: #000;
+}

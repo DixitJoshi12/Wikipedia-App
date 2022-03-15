@@ -1,6 +1,8 @@
+// import { useState } from "react";
 import classes from "./components-styles/LoginForm.module.css";
 
 const LoginForm = () => {
+  // useState(false);
   return (
     <div className={classes["inner-box"]}>
       <div className={classes.upper}>
@@ -11,9 +13,9 @@ const LoginForm = () => {
         <h3>Login</h3>
       </div>
       <form action="">
-        <input name="user" type="text" />
+        <input name="user" type="text" placeholder="username" />
         <p>Username must be at least 5 characters.</p>
-        <input name="password" type="password" />
+        <input name="password" type="password" placeholder="password"/>
         <p>Password must be at least 6 characters.</p>
         <button disabled className={classes.btn1}>
           Submit
