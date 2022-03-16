@@ -22,7 +22,10 @@
     border-style: none;
     margin-top: 1.2rem;
 }
-
+.btn1:disabled{
+    background: #9595a7;
+    cursor: not-allowed;
+}
 .inner-box {
     position: absolute;
     top : 10vh;
@@ -89,4 +92,8 @@
     padding-left: 40px;
     /* font-weight: 600; */
     color: #000;
+}
+
+.hidepara{
+    /* display: none; */
 }
