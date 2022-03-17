@@ -1,0 +1,13 @@
+.card-wrap{
+        margin: 12px 25px;
+}
+
+.card-wrap select{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 6px;
+    box-shadow: 1px 1px 5px -1px rgb(0 0 0 / 75%);
+    border: none;
+    color: #9e9797;
+}

@@ -1,0 +1,20 @@
+.box-outer{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    margin: 12px 25px;
+    box-shadow: 1px 1px 5px -1px rgb(0 0 0 / 75%);
+}
+
+.box-outer p{
+    font-size: 14px;
+    color: #333;
+}
+
+.rounded-btn{
+    background-color: red;
+    color: #fff;
+    border-radius: 50%;
+    width: 1.5rem;
+    height: 1.5rem;
+}

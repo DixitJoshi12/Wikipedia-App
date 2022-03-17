@@ -4,7 +4,7 @@
     top : 35px;
 }
 .inner-box h3{
-    margin-top: 5rem;
+    margin-top: 4rem;
     margin-bottom: 15px;
     font-weight: 400;
     font-size: 2rem;
@@ -57,9 +57,7 @@
     outline: none;
     box-shadow: 0.5px 0.5px 3px 0.5px rgb(0 0 0 / 25%);
 }
-/* .inner-box form input:focus {
-    border: rebeccapurple;
-} */
+
 .inner-box form p{
     font-size: 10px;
     line-height: 1.6;
@@ -90,10 +88,13 @@
     background-size: 15px 15px;
     text-align: left;
     padding-left: 40px;
-    /* font-weight: 600; */
     color: #000;
 }
 
-.hidepara{
-    /* display: none; */
+/* input border-bottom red when touched and invalid */
+.input-border[type="password"]{
+    border-bottom: 3px solid red;
+}
+.input-border[type="text"]{
+    border-bottom: 3px solid red;
 }

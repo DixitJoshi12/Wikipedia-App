@@ -1,5 +1,6 @@
 import { useState } from "react";
 import classes from "./components-styles/LoginForm.module.css";
+import LoginImage from "../images/padlock.png";
 
 const LoginForm = () => {
   const [enteredName, setEnteredName] = useState("");
@@ -55,16 +56,17 @@ const LoginForm = () => {
     setEnteredNameTouched(false);
     setEnteredPasswordTouched(false);
   };
+
   return (
     <div className={classes["inner-box"]}>
       <div className={classes.upper}>
         <img
-          src="http://localhost:3001/static/media/padlock.938bce02.png"
+          src={LoginImage}
           alt=""
         />
         <h3>Login</h3>
       </div>
-      <form onSubmit={formSubmitHandler}>
+      <form onSubmit={formSubmitHandler}>  
         <input
           name="user"
           type="text"
@@ -72,6 +74,7 @@ const LoginForm = () => {
           onBlur={nameBlurHandler}
           placeholder="username"
           value={enteredName}
+          className={enteredNameInvalid && enteredNameTouched  ?  classes['input-border'] : ''}
         />
         {enteredNameInvalid && <p>Username must be at least 5 characters.</p>}
         <input
@@ -81,9 +84,10 @@ const LoginForm = () => {
           onBlur={passwordBlurHandler}
           placeholder="password"
           value={enteredPassword}
+          className={enteredPasswordInvalid  && enteredPasswordTouched?  classes['input-border'] : ''}
         />
         {enteredPasswordInvalid && (
-          <p>Password must be at least 6 characters.</p>
+          <p className={classes['para-bottom-border']}>Password must be at least 6 characters.</p>
         )}
         <button disabled={!formIsValid} className={classes.btn1}>Submit</button>
       </form>
@@ -92,3 +96,4 @@ const LoginForm = () => {
 };
 
 export default LoginForm;
+// when istouched is true and invalid form
