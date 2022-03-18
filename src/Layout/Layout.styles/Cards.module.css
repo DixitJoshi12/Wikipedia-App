@@ -1,0 +1,32 @@
+.cards-wrap-item{
+    border: 2px solid green;
+    /* max-width: 30%; */
+    margin: auto;
+    /* overflow: visible; */
+    /* height: 20vh; */
+}
+.card-row{
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* width: 50%; */
+    
+}
+/* .card-row h3{
+    margin: 8px;
+    font-weight: 600;
+    font-size: 14px;
+}
+.card-row p{
+    margin: 8px;
+    font-weight: 300;
+    font-size: 12px;
+} */
+.card-box{
+    border: 2px solid blue;
+}
+.card-box p{
+    margin: 8px;
+    padding: 2px 5px;
+}
