@@ -1,47 +1,52 @@
+header{
+    /* height: 8vh; */
+    width: 100%;
+    background-color: #fff;
+}
 .container{
-    height: 50px;
+    height: 100%; 
     display: flex;
     align-items: center;
     justify-content: space-around;
 }
 
-.left > img{
+
+.container .left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container .left > img{
     height: 30px;
     width: 30px;
-    
 }
-.left h2{
+.container .left h2{
     font-size: 13px;
     font-weight: 400;
     margin-left: 14px;
     padding: 2px 4px;
 }
-.left {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.container nav ul{
+ 
+ nav ul{
     display: flex;
     align-items: center;
     justify-content: center;
     list-style: none;
 }
 
-.container nav ul li{
+ nav ul li{
     padding: 8px;
     font-size: 12px;
     font-weight: 400;
     text-decoration: none;
 }
-.container nav ul li a{
+ nav ul li a{
     text-decoration: none;
     color: #000;
 }
 
-.container nav ul li a:hover,
-.container nav ul li a:active
+ nav ul li a:hover,
+ nav ul li a:active
 {
     color: #333;
     border-bottom: 2px solid #333;

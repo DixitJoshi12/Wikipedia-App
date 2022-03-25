@@ -5,7 +5,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <React.Fragment>
+    <div className={classes['footer-container']}>
       <div className={classes['up-arrow']}>
           {/* <img src="/src/images/up-arrow.png" alt="up-arrow" /> */}
       </div>
@@ -18,7 +18,7 @@ const Footer = () => {
         </p>
         <ButtonComponent value="English" />
       </div>
-    </React.Fragment>
+      </div>
   );
 };
 

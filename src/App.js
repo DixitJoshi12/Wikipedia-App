@@ -7,7 +7,7 @@ import Settings from './pages/Settings';
 
 function App() {
   return (
-    <div>
+    <div className="layout-main">
       
       <Switch>
       <Route path="/home">
