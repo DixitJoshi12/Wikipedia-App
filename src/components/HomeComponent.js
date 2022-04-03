@@ -1,59 +1,59 @@
-// import { useSelector } from "react-redux";
 import Cards from "../Layout/Cards";
 import classes from "./components-styles/HomeComponent.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { useState } from "react";
+import {  useState } from "react";
 import { homeActions } from "../store/homeSlice";
 import Container from "../Layout/Container";
 import Header from "./Header";
 import Pagination from "../Layout/Pagination";
 import HomeLayout from "../Layout/HomeLayout";
 import Footer from "./Footer";
-
-const postDataA = [  {
-  key: 1,
-  searchItem: "dixit joshi",
-  description:
-    "disjif  kdsjl jl f lsjl  jflj sjf  jflj lj  jaldjf ljs jfjd ljfj jfjfldjflj jfj lj ljdls lj fjlsjdl jl jdl jfljfl jldjf lsjf ljlf jljfls djflj sdlfjl sjfl fjdsjfl  jlj fj fsdl jfl disjif  kdsjl jl f lsjl  jflj sjf  jflj lj  jaldjf ljs jfjd ljfj jfjfldjflj jfj lj ljdls lj fjlsjdl jl jdl jfljfl jldjf lsjf ljlf jljfls djflj sdlfjl sjfl fjdsjfl  jlj fj fsdl jfl disjif  kdsjl jl f lsjl  jflj sjf  jflj lj  jaldjf ljs jfjd ljfj jfjfldjflj jfj lj ljdls lj fjlsjdl jl jdl jfljfl jldjf lsjf ljlf jljfls djflj sdlfjl sjfl fjdsjfl  jlj fj fsdl jfl",
-},
-{
-  key: 2,
-  searchItem: "dixit joshi",
-  description:
-    "sjfl fjdsjfl  jlj fj fsdl jfl disjif  kdsjl jl f lsjl  jflj sjf  jflj lj  jaldjf ljs jfjd ljfj jfjfldjflj jfj lj ljdls lj fjlsjdl jl jdl jfljfl jldjf lsjf ljlf jljfls djflj sdlfjl sjfl fjdsjfl  jlj fj fsdl jfl",
-},
-{
-  key: 3,
-  searchItem: "dixit joshi",
-  description:
-    "disjif  kdsjl jl f lsjl  jflj sjf  jflj lj  jaldjf ljs jfjd ljfj jfjfldjflj jfj lj ljdls lj fjlsjdl jl jdl jfljfl jldjf lsjf ljlf jljfls djflj sdlfjl sjfl fjdsjfl  jlj fj fsdl jfl disjif  kdsjl jl f lsjl  jflj sjf  jflj lj  jaldjf ljs jfjd ljfj jfjfldjflj jfj lj ljdls lj fjlsjdl jl jdl jfljfl jldjf lsjf ljlf jljfls djflj sdlfjl sjfl fjdsjfl  jlj fj fsdl jfl disjif  kdsjl jl f lsjl  jflj sjf  jflj lj  jaldjf ljs jfjd ljfj jfjfldjflj jfj lj ljdls lj fjlsjdl jl jdl jfljfl jldjf lsjf ljlf jljfls djflj sdlfjl sjfl fjdsjfl  jlj fj fsdl jfl",
-},
-{
-  key: 4,
-  searchItem: "dixit joshi",
-  description:
-    "disjif  kdsjl jl f lsjl  jflj sjf  jflj lj  jaldjf ljs jfjd ljfj jfjfldjflj jfj lj ljdls lj fjlsjdl jl jdl jfljfl jldjf lsjf ljlf jljfls djflj sdlfjl sjfl fjdsjfl  jlj fj fsdl jfl disjif  kdsjl jl f lsjl  jflj sjf  jflj lj  jaldjf ljs jfjd ljfj jfjfldjflj jfj lj ljdls lj fjlsjdl jl jdl jfljfl jldjf lsjf ljlf jljfls djflj sdlfjl sjfl fjdsjfl  jlj fj fsdl jfl disjif  kdsjl jl f lsjl  jflj sjf  jflj lj  jaldjf ljs jfjd ljfj jfjfldjflj jfj lj ljdls lj fjlsjdl jl jdl jfljfl jldjf lsjf ljlf jljfls djflj sdlfjl sjfl fjdsjfl  jlj fj fsdl jfl",
-},];
+import HomeContainer from "../Layout/HomeContainer";
+import { serachTextActions } from "../store/searchTextSlice";
 
 const HomeComponent = (props) => {
   const [searchText, setSearchText] = useState("");
+  const [index, setIndex] = useState({
+    startIndex: 0,
+    endIndex: 0,
+  });
+
+  const defaultcurrentPage = useSelector(state => state.currentPage.defaultCurrentPage);
 
   const searchTitle = useSelector((state) => state.setting.defaultSearchType);
   const sortOrder = useSelector((state) => state.setting.defaultSortOrder);
-  const resultOnPage = useSelector((state) => state.defaultResultsPerPage);
+  const resultOnPage = useSelector(
+    (state) => state.setting.defaultResultsPerPage
+  );
 
   const isLoading = useSelector((state) => state.home.isLoading);
-  const hasErrors = useSelector((state) => state.home.hasErrors);
+  // const hasErrors = useSelector((state) => state.home.hasErrors);
   const postData = useSelector((state) => state.home.posts);
   const dispatch = useDispatch();
 
   const onInputChangeHandler = (event) => {
     setSearchText(event.target.value);
+   
   };
+
+  function onGetCurrentPageHandler (){
+    setIndex(() => {
+      var currentstartIndex = defaultcurrentPage * resultOnPage - resultOnPage;
+      return {
+        startIndex: currentstartIndex,
+        endIndex: parseInt(currentstartIndex) + parseInt(resultOnPage) ,
+      };
+    });
+  }
+
+console.log(index)
 
   const onSubmitHandler = async (event) => {
     event.preventDefault();
+    dispatch(serachTextActions.setSearchText(searchText));
+   
     try {
+      dispatch(homeActions.postData());
       const url = `https://en.wikipedia.org/w/api.php?origin=*&action=query&format=json&list=search&utf8=1&srsearch=${searchText}&srlimit=20&srwhat=text&srsort=${sortOrder}`;
       const response = await fetch(url);
       if (!response.ok) {
@@ -62,13 +62,13 @@ const HomeComponent = (props) => {
       const data = await response.json();
       const list = data.query.search.map((item) => {
         return {
+          key: Math.random() * 100,
           id: item.pageid,
           searchItem: item.title,
           description: item.snippet,
         };
       });
       dispatch(homeActions.postSuccess(list));
-      // console.log(list)
     } catch (error) {
       dispatch(homeActions.postError());
     }
@@ -89,6 +89,7 @@ const HomeComponent = (props) => {
                 type="text"
                 placeholder="Search Text.."
                 onChange={onInputChangeHandler}
+                value={searchText}
               />
             </div>
             <div className={classes["input-rows"]}>
@@ -96,7 +97,7 @@ const HomeComponent = (props) => {
               <input type="text" disabled value={sortOrder} />
             </div>
           </div>
-          <button className={classes["home-btn"]} onClick={onSubmitHandler}>
+          <button className={`${ searchText === "" ? classes["home-btn"] : classes['home-active']}`} onClick={onSubmitHandler}>
             Submit
           </button>
         </div>
@@ -104,20 +105,29 @@ const HomeComponent = (props) => {
         <div className={classes.center}>
           <p>Search Results</p>
         </div>
-        {/* <div className="bottom-margin"></div> */}
       </div>
       <div className={classes.cards}>
-        {postData.length === 0 && <p>no card element</p>}
-        {postData.length > 0 &&
-          postDataA.map((item) => (
-            <Cards
-              key={item.id}
-              searchItem={item.searchItem}
-              description={item.description}
-            />
-          ))}
+        {isLoading && <HomeContainer>Loading Data please Wait</HomeContainer>}
+        {postData.length === 0 && !isLoading && <HomeContainer>No Items Found!</HomeContainer>}
+
+        {!isLoading &&
+          postData
+            .slice(index.startIndex, index.endIndex)
+            .map((item) => (
+              <Cards
+                key={item.id}
+                searchItem={item.searchItem}
+                description={item.description}
+              />
+            ))}
       </div>
-      <Pagination />
+      {!isLoading && (
+        <Pagination
+          data={postData}
+          numberOfButtons={resultOnPage}
+          onGetCurrentPage = {onGetCurrentPageHandler}
+        />
+      )}
       <HomeLayout />
       <Footer />
     </Container>

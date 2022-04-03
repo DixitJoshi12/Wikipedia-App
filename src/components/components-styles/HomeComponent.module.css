@@ -29,6 +29,17 @@
     cursor: pointer;
     border-style: none;
 }
+.home-active{
+    width: 250px;
+    padding: 10px;
+    background-color: #4848e6;
+    border-radius: 30px;
+    font-weight: 100;
+    font-size: 13px;
+    color: #fff;
+    cursor: pointer;
+    border-style: none;
+}
 
 .input-rows{
     display: flex;

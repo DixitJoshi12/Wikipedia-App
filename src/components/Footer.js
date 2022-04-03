@@ -2,12 +2,13 @@ import classes from "./components-styles/Footer.module.css";
 import Icon from "../images/app-icon.png";
 import ButtonComponent from "./ButtonComponent";
 import React from "react";
+import UpArrow from "../images/up-arrow.png";
 
 const Footer = () => {
   return (
     <div className={classes['footer-container']}>
       <div className={classes['up-arrow']}>
-          {/* <img src="/src/images/up-arrow.png" alt="up-arrow" /> */}
+          <img src={UpArrow} alt="up-arrow" />
       </div>
       <div className={classes.foot}>
         <img src={Icon} alt="" />

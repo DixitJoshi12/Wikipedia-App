@@ -4,6 +4,7 @@ import React from "react";
 import classes from "./components-styles/ConfigurationSettings.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { settingsActions } from "../store/settingsSlice";
+import { currentPageActions } from "../store/currentPage";
 
 const ConfigurationSettings = (props) => {
   const defaultSearchTitle = useSelector((state) => state.setting.defaultSearchType);
@@ -13,6 +14,8 @@ const ConfigurationSettings = (props) => {
   const searchTypes = useSelector((state) => state.setting.searchTypes);
   const sortOrders = useSelector((state) => state.setting.sortOrders);
   const resultsPerPage = useSelector((state) => state.setting.resultsPerPage);
+
+  const searchText = useSelector(state => state.searchText.searchText);
 
   const dispatch = useDispatch();
 
@@ -24,18 +27,19 @@ const ConfigurationSettings = (props) => {
   };
   const getResultOnPageHandler = (numberPerPage) => {
     dispatch(settingsActions.updateDefaultResultsPerPage(numberPerPage));
+    dispatch(currentPageActions.setCurrentPage(1));
   };
+  const searchHistoryClassName = searchText.length > 0 ? "row2" : "row2empty";
   return (
     <div className={classes.wrap}>
       <div className={classes.row1}>
         <h1>Settings</h1>
         <p>Manage search settings and history</p>
       </div>
-      <div className={classes.row2}>
+      <div className={` ${searchText.length > 0 ? classes.row2 : classes.row2empty}`}>
         <h2>Search History</h2>
-        <Box paratitle="Kite" />
-        <Box paratitle="aeroplane" />
-        {/* paraname should be dynamic */}
+        {searchText.length === 0 && <div className={classes.centeredbox}>No history found!!!</div>}
+        {searchText.length > 0 && searchText.slice(searchText.length-2,searchText.length).reverse().map((item)=> <Box paratitle={item} />)}
       </div>
       <div className={classes["row-empty"]}></div>
       <div className={classes.row3}>

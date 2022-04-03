@@ -1,17 +1,18 @@
-import React from "react";
-
 import Header from "../components/Header";
 import Container from "../Layout/Container";
 import Footer from "../components/Footer";
 import ConfigurationSettings from "../components/ConfigurationSettings";
+import HomeLayout from "../Layout/HomeLayout";
 
 const Settings = () => {
   return (
-    <React.Fragment>
+    <Container>
       <Header />
-      <Container><ConfigurationSettings /></Container>
+      <ConfigurationSettings />
+      <div height="5vh"></div>
+      {/* <HomeLayout /> */}
       <Footer />
-    </React.Fragment>
+    </Container>
   );
 };
 

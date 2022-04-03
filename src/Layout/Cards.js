@@ -1,7 +1,6 @@
 import classes from "./Layout.styles/Cards.module.css";
 
 const Cards = (props) => {
-  console.log(props);
   return (
     <div className={classes['cards-wrap-item']}>
       <div className={classes['card-row']}>

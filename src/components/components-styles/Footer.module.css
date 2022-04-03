@@ -1,6 +1,8 @@
 .footer-container{
     background-color: #fff;
     width: 100%;
+    position: relative;
+    padding: 5rem 0 5rem 0;
 }
 
 .foot{
@@ -8,8 +10,6 @@
     align-items: center;
     justify-content: space-around;
     text-align: center;
-    margin: 2rem;
-    padding: 3rem;
 }
 
 .foot img{
@@ -19,4 +19,24 @@
 .foot p{
     font-size: 12px;
     width: 40%;
+}
+
+
+.up-arrow{
+position: absolute;
+top: 0;
+margin: 0 auto;
+left: 45%;
+background-color: #fff;
+border-radius: 50%;
+padding: 15px;
+text-align: center;
+transform: translate(50%,-50%);
+border: 8px solid #ebe8e8;
+}
+
+.up-arrow img{
+    width: 25px;
+    height: 25px;
+    font-weight: 200;
 }
