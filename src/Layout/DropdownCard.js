@@ -1,7 +1,6 @@
 import classes from "./Layout.styles/DropdownCard.module.css";
 
 const DropdownCard = (props) => {
-  console.log("dropdownconstainer");
 
   const option = props.options.map((item) => (
     <option key={item} value={item}>

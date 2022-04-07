@@ -10,6 +10,11 @@ const searchTextSlice = createSlice({
     reducers : {
         setSearchText(state,action){
             state.searchText.push(action.payload);
+        },
+        removeElementAtIndex(state,action){
+            console.log("action payload : "+action.payload)
+            state.searchText.splice(action.payload,1);
+            // state.searchText.pop();
         }
     }
 });

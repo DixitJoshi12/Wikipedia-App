@@ -46,8 +46,6 @@ const HomeComponent = (props) => {
     });
   }
 
-console.log(index)
-
   const onSubmitHandler = async (event) => {
     event.preventDefault();
     dispatch(serachTextActions.setSearchText(searchText));
